@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wordly Dictionary</title>
+
+  <link rel="stylesheet" href="./css/style.css"><!--it links the html and css file for styling the web -->
+</head>
+<body>
+
+  <div class="container">
+
+    <h1>Wordly</h1>
+
+    <!-- A short description on what the app does-->
+    <p>Wordly is a single-page dictionary application that lets  users search for word meanings,pronunciation,examples and synonyms without refreshing the page.</p>
+
+    <!--search section where user enters a word-->
+    <form id="search-form">
+      <label for="search-input">Enter a word</label>
+
+      <input type="text" id="search-input"  name="search" placeholder="search for a word" autocomplete="off" required>
+
+      <button type="submit">Search</button>
+
+    </form>
+    <!--Showing loading message while waiting for API-->
+    <div id="loading"></div>
+
+    <!--if the error is found it will show an error message-->
+    <div id="error" role="alert"></div>
+
+    <!--result section where javascript fills when the user click search-->
+    <section class="results-section" id="result">
+      <h3 id="word"></h3>
+
+      <p><strong>Part of speech:</strong></p><!--where noun,verb,adjective are displayed-->
+      <p id="part-of-speech"></p>
+
+      <p><strong>Example:</strong></p><!--example sentence using the word-->
+      <p id="example"></p>
+
+      <p><strong>Definition:</strong></p><!--meaning of the word-->
+      <p id="definition"></p>
+
+
+      <p><strong>Pronunciation:</strong></p><!--how the words are pronounced-->
+      <p id="pronunciation"></p>
+
+
+      <p><strong>Synonym:</strong></p><!--shows the word with similar meaning-->
+      <p id="synonym"></p>
+
+      <p><strong>Source:</strong></p>
+      <a id="source-link" href="#" target="_blank">View Source</a><!--the link that links it to the Dictionary-->
+
+
+      <audio id="audio" controls></audio><!--audio player when for pronunciation-->
+
+      <!--favourites section to save words-->
+    <section class="favourites-section">
+      <p id="empty-favourites"> No favourite words saved yet.</p>
+
+      <h2>Favourites</h2>
+      <ul id="favourites-list"></ul><!--lists for saved words-->
+        </section>
+        </section>
+
+
+        <footer>
+    <p>&copy; 2026 Wordly.All rights reserved</p>
+  </footer>
+    </div>
+  </div>
+  <script src="./js/index.js" defer></script><!--connects javascript file and runs when the html loads-->
+</body>
+</html>
