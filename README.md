@@ -38,18 +38,19 @@ This project is built as a **Single Page Application (SPA)**, meaning all intera
 
 ```
 Wordly-Dictionary-SPA/
-│
-├── index.html
-├── README.md
-│
-├── css/
-│   └── style.css
-│
-├── js/
-│   └── index.js
-│
-└── assets/
-    └── screenshot.png
+
+- index.html
+
+-README.md
+
+ css/
+   - style.css
+
+js/
+   -index.js
+
+assets
+     -screenshot.png
 ```
 
 ---
@@ -111,7 +112,7 @@ The API retrieves:
 
 Deployed Application:
 
-https://your-live-demo-link.com
+https://github.com/dorothykoskei-spec/SPA-lab/settings/pages
 
 ---
 
@@ -258,7 +259,7 @@ https://github.com/dorothykoskei-spec/SPA-lab.git
 
 GitHub:
 
-https://github.com/yourusername
+https://github.com/dorothykoskei-spec
 
 ---
 
@@ -281,9 +282,6 @@ This project is intended for educational purposes only.
 
 **Dorothy Chemutai**
 
-GitHub:
-
-https://github.com/yourusername
 
 ---
 
