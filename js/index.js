@@ -14,16 +14,12 @@ const favList = document.getElementById('favourites-list');
 const emptyFav = document.getElementById('empty-favourites');
 const result = document.getElementById('result'); 
 
-//the local storage stores data as a a string used  for storing the favourite words
 //JSON now converts the string to an array when it is passed to javascript
 let favourites = JSON.parse(localStorage.getItem('wordlyFavs')) || [];
 
 document.addEventListener('DOMContentLoaded', renderFavourites);
 
 //addEventListener listens to the submit form when the user clicks the search button
-//the preventDefault prevents the page from reloading
-//when the user type  nothing it will display an error message 
-// if the user typed a word we use fetchWord to request to the Dictionary API
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const searchTerm = input.value.trim();
@@ -33,7 +29,7 @@ form.addEventListener('submit', (e) => {
   }
   fetchWord(searchTerm); 
 })
-//Used a function fetchWord where the user search for the word frrom the API
+//Used a function fetchWord where the user search for the word from the API
 function fetchWord(wordToSearch) {
   setLoading(true);
   clearError();//removes the older messages
@@ -77,33 +73,33 @@ function displayWord(data) {
 //joins the synonym into one string and if there is no synonym display none
   synonym.innerText = allSynonyms.length > 0? [...new Set(allSynonyms)].join(', ') : 'None';
 
-  //
+  
   if (data.sourceUrls && data.sourceUrls[0]) {//it checks if the API returned the url
     sourceLink.href = data.sourceUrls[0];//it puts the URL into the link
     sourceLink.hidden = false;//Makes the link visible
   }
-// it looks through  pronunciation objects in the API after that 
+
 //if the object is found the audio gets the audio property
 const audioUrl = data.phonetics.find(p => p.audio)?.audio;
 
 
 if (audioUrl) { // checks if the audio url is found
-  const fixedUrl = audioUrl.startsWith('//') ? 'https:' + audioUrl : audioUrl;//it adds 'https' to make the url valid if it begins with '//'
+  const fixedUrl = audioUrl.startsWith('//') ? 'https:' + audioUrl : audioUrl;//it adds 'https' to make the url valid if it begins with '//' add 'https'
 
   audio.src = fixedUrl;// Sets the audio player source to the pronunciation file
   audio.hidden = false;//it makes the audio visible
 } else {
   audio.src = ''; //if there is no audio that exist remove the previous audio
-  audio.hidden = true;//hides the audio coz there is no audio tha plays
+  audio.hidden = true;
 }
 
   addSaveButton(data.word);//it creates and display the favourites button
 }
 
 function setLoading(isLoading) { //it prevents multiple clicks
-  loading.textContent = isLoading? 'Loading...' : ''; //if loading is true display 'loading' if its not true display remove the loading
+  loading.textContent = isLoading? 'Loading...' : ''; 
   //
-  form.querySelector('button').disabled = isLoading;//disables the button when the loading continues nad enabling it when it finishes
+  form.querySelector('button').disabled = isLoading;
 }
 
 function displayError(message) {
@@ -141,11 +137,11 @@ function addSaveButton(wordToSave) { //creates a Save button for the current wor
     btn.textContent = 'Add to Favourites';// if not  saved  it tells it to save
   }
 
-  btn.onclick = function() { //it tells the button what to do when it is clicked
+  btn.onclick = function() { 
     toggleFavourite(wordToSave);
   };
 
-  result.appendChild(btn); // it makes the button appear on the web
+  result.appendChild(btn); 
 }
 
 function toggleFavourite(wordToSave) {  //removes the words from the favourite list
