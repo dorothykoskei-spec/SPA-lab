@@ -32,8 +32,8 @@ form.addEventListener('submit', (e) => {
 //Used a function fetchWord where the user search for the word from the API
 function fetchWord(wordToSearch) {
   setLoading(true);
-  clearError();//removes the older messages
-  clearResult();//removes the previous word
+  clearError();
+  clearResult();
 
   fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${wordToSearch}`)
    .then(res => {
@@ -61,7 +61,7 @@ function displayWord(data) {
 
   partOfSpeech.innerText = allParts;//displays all the partsOfSpeech
 
-  definition.innerText = def.definition;//it shows an example if there is no example display an default message
+  definition.innerText = def.definition;
   example.innerText = def.example || 'No example available';
 
   //displays the example message if there is no example show 'N/A'
@@ -74,8 +74,8 @@ function displayWord(data) {
   synonym.innerText = allSynonyms.length > 0? [...new Set(allSynonyms)].join(', ') : 'None';
 
   
-  if (data.sourceUrls && data.sourceUrls[0]) {//it checks if the API returned the url
-    sourceLink.href = data.sourceUrls[0];//it puts the URL into the link
+  if (data.sourceUrls && data.sourceUrls[0]) { //it checks if the API returned the url
+    sourceLink.href = data.sourceUrls[0];
     sourceLink.hidden = false;//Makes the link visible
   }
 
@@ -84,12 +84,12 @@ const audioUrl = data.phonetics.find(p => p.audio)?.audio;
 
 
 if (audioUrl) { // checks if the audio url is found
-  const fixedUrl = audioUrl.startsWith('//') ? 'https:' + audioUrl : audioUrl;//it adds 'https' to make the url valid if it begins with '//' add 'https'
+  const fixedUrl = audioUrl.startsWith('//') ? 'https:' + audioUrl : audioUrl;
 
   audio.src = fixedUrl;// Sets the audio player source to the pronunciation file
-  audio.hidden = false;//it makes the audio visible
+  audio.hidden = false;
 } else {
-  audio.src = ''; //if there is no audio that exist remove the previous audio
+  audio.src = ''; 
   audio.hidden = true;
 }
 
@@ -107,7 +107,7 @@ function displayError(message) {
 }
 //it clears the previous error message
 function clearError() {
-  error.textContent = '';//it removes the text from the error element
+  error.textContent = '';
 }
 //here it clears the previous information
 function clearResult() {
@@ -127,9 +127,9 @@ function clearResult() {
 }
 
 function addSaveButton(wordToSave) { //creates a Save button for the current word
-  const btn = document.createElement('button'); //creates a new button element
+  const btn = document.createElement('button');
   btn.id = 'save-btn';
-  btn.style.marginTop = '15px';//adds some space above the button
+  btn.style.marginTop = '15px';
 
   if (favourites.includes(wordToSave.toLowerCase())) {
     btn.textContent = 'Saved';// If the word is  saved it will display saved
