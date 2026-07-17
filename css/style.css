@@ -1,4 +1,4 @@
-body{
+body {
   background-color: antiquewhite;
   display: flex;
   justify-content: center;
@@ -15,7 +15,7 @@ body{
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
 }
 
-h1{
+h1 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 39px;
   font-weight: bolder;
@@ -23,12 +23,12 @@ h1{
   margin-bottom: 24px;
 }
 
-.container p{
+.container p {
   text-align: center;
   margin-bottom: 20px;
 }
 
-#search-form{
+#search-form {
   display: flex;
   margin-bottom: 15px;
   gap: 8px;
@@ -41,12 +41,13 @@ label{
   white-space: nowrap;
 }
 
-#search-input{
-  flex: 1;
-  padding: 9px;
-  width: 250px;
+#search-input {
+  padding: 10px 15px;
+  width: 220px;
   border: 1px solid #c7b9b9;
-  border-radius: 3px;
+  border-radius: 20px;
+  font-size: 15px;
+
 
 }
 
